@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" configfailurepolicy="skip" verbose="0" name="Failed suite [seleniumTests]" skipfailedinvocationcounts="false" parallel="false" annotations="JDK" data-provider-thread-count="10">
+  <test verbose="1" name="functionalTests(failed)" junit="false" parallel="false" annotations="JDK">
+    <classes>
+      <class name="com.fpx.test.QuoteGeneration">
+        <methods>
+          <include name="browserAccess1"/>
+          <include name="newQuoteCreation"/>
+          <include name="opportunitySelection"/>
+          <include name="loginTOApplication"/>
+          <include name="afterExecution"/>
+          <include name="browserClose"/>
+          <include name="productSelection"/>
+          <include name="totalTestcase"/>
+          <include name="documentGeneration"/>
+          <include name="beforesetup"/>
+        </methods>
+      </class>
+      <class name="com.fpx.test.jsoncreator">
+        <methods>
+          <include name="jsoncreate"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

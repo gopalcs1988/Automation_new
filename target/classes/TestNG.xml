@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTests">
+	<test name="functionalTests" preserve-order="true">
+	<classes>
+ 	<class name="com.fpx.test.QuoteGeneration" /> 
+ 	<class name="com.fpx.test.jsoncreator"/>
+ 	</classes>
+	</test>
+</suite>

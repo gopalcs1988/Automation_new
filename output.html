@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1316/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1316/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1316/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1316/styles/kendo.dataviz.default.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script> 
+	<script src="http://cdn.kendostatic.com/2014.3.1316/js/kendo.all.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.min.js"></script>
+
+	<!-- Add fancyBox -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+</head>
+<body ng-app="">
+
+	<div id="container">
+		<h3>Automation Report</h3>
+        <div id="grid"></div>
+		
+     <script>
+                $(document).ready(function() {
+					var jsonData;
+
+					function parseJson(d) {
+						jsonData = d;
+						$("#grid").kendoGrid({
+							dataSource: {
+								type: "odata",
+								transport: {
+									read:  function (options) {
+										options.success(jsonData.modules);
+									}
+								},
+								schema: {
+								data: function (data) {
+								return data;
+								},
+								total: function (data) {
+								return data['odata.count'];
+								},
+								model: {
+								fields: {
+								modulename: { type: "string" },
+								moduledescription: { type: "string" }
+								}
+								}
+								},
+								pageSize: 15,
+								
+								aggregate: [
+								{ field: "totalpass", aggregate: "sum" },
+								{ field: "totalfail", aggregate: "sum" },
+								{ field: "totaltestcase", aggregate: "sum" }
+								]
+							},
+							height: 500,
+						  resizable: true,
+						  pageable: {
+							  refresh: true,
+							  pageSizes: true,
+							  buttonCount: 5
+						  },
+						  detailInit: detailInit,
+							
+							columns: [
+								{ 	field: "modulename", 
+									title: "Module Name",
+									width: 100
+								},
+								{ 	field: "moduledescription", 
+									title: "Module Description",
+									width: 100
+								},
+								{ 	field: "totalpass", 
+									title: "PASS",
+									width: 100,
+									aggregates: ["sum"],
+									footerTemplate: "TOTAL PASS: #= sum#"
+								},
+								{ 	field: "totalfail", 
+									title: "FAIL",
+									width: 100,
+									aggregates: ["sum"],
+									footerTemplate: "TOTAL FAIL: #= sum#"
+								},
+								{ 	field: "totaltestcase", 
+									title: "Total Cases",
+									width: 100,
+									aggregates: ["sum"],
+									footerTemplate: "TOTAL CASES: #= sum#"
+								}
+							]
+						});
+					}
+
+
+					 $.ajax({
+						dataType: "json",
+						url: "output.json",
+						success: function(data){
+							parseJson(data);
+						}
+					});
+					
+					function detailInit(e) {
+                    $("<div/>").appendTo(e.detailCell).kendoGrid({
+                        dataSource: {
+                            type: "odata",
+                            transport: {
+                                read:  function (options) {
+											options.success(jsonData.modules[Number(e.data.index)].testElements);
+											$.each(e.detailCell.find("[role='grid'] [role='gridcell'] a"), function(){
+												if(!$(this).attr("href")){
+													$(this).css("display", "none");
+												}
+											});
+											e.detailCell.find("[role='grid'] [role='gridcell'] a").fancybox({
+										        helpers: {
+										            title : {
+										                type : 'inside'
+										            }
+										        },
+										        afterLoad: function() {
+											        this.title = '<a href="#" download="' + this.href + '">Download</a> ';
+											    }
+										    });
+										}
+                            },
+							schema: {
+									data: function (data) {
+									return data;
+									},
+									total: function (data) {
+									return data['odata.count'];
+									},
+									model: {
+									fields: {
+									modulename: { type: "string" },
+									moduledescription: { type: "string" }
+									}
+									}
+									},
+                            serverPaging: true,
+                            serverSorting: true,
+                            serverFiltering: true,
+                            pageSize: 10
+                        },
+                        scrollable: false,
+                        sortable: true,
+                        pageable: {
+								  refresh: true,
+								  pageSizes: true,
+								  buttonCount: 5
+							  },
+                        columns: [
+									{ 	field: "name", 
+										title: "Name",
+										width: 200
+									},
+									{ 	field: "description", 
+										title: "Description",
+										width: 200
+									},
+									{ 	field: "status", 
+										title: "Status",
+										width: 200
+									},                
+									{ 	field: "starttime", 
+										title: "Start Time",
+										width: 100
+									},
+									{ 	field: "endtime", 
+										title: "End Time",
+										width: 100
+									},
+									{ 	field: "snapshot", 
+										title: "Snapshot",
+										width: 200,
+										template: "<a href='#:snapshot#' target='' class='k-icon k-i-search' style='display: inline-block;margin: 0px 5px 0px 20px;'></a><span>#:snapshot#</span>"
+									}                            
+								]
+                    });
+                }
+                    
+                });
+				
+				
+                
+            </script>
+    </div>
+</body>
+</html>

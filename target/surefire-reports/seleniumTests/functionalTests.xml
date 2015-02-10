@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="IMCHLT059" name="com.fpx.test.QuoteGeneration" tests="5" failures="0" timestamp="6 Feb 2015 12:12:31 GMT" time="154.517" errors="0">
+  <testcase name="loginTOApplication" time="4.54" classname="com.fpx.test.QuoteGeneration"/>
+  <testcase name="opportunitySelection" time="35.548" classname="com.fpx.test.QuoteGeneration"/>
+  <testcase name="newQuoteCreation" time="15.902" classname="com.fpx.test.QuoteGeneration"/>
+  <testcase name="productSelection" time="44.993" classname="com.fpx.test.QuoteGeneration"/>
+  <testcase name="documentGeneration" time="24.908" classname="com.fpx.test.QuoteGeneration"/>
+</testsuite>

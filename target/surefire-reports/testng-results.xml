@@ -1,0 +1,44 @@
+<testng-results>
+  <reporter-output>
+  </reporter-output>
+  <suite name="seleniumTests" duration-ms="154517" started-at="2015-02-06T17:39:56Z" finished-at="2015-02-06T17:42:31Z">
+    <groups>
+    </groups>
+    <test name="functionalTests" duration-ms="154517" started-at="2015-02-06T17:39:56Z" finished-at="2015-02-06T17:42:31Z">
+      <class name="com.fpx.test.QuoteGeneration">
+        <test-method status="PASS" signature="beforesetup()" name="beforesetup" is-config="true" duration-ms="3" started-at="2015-02-06T17:39:56Z" finished-at="2015-02-06T17:39:56Z">
+        </test-method>
+        <test-method status="PASS" signature="browserAccess1()" name="browserAccess1" is-config="true" duration-ms="28621" started-at="2015-02-06T17:39:56Z" finished-at="2015-02-06T17:40:25Z">
+        </test-method>
+        <test-method status="PASS" signature="loginTOApplication()" name="loginTOApplication" duration-ms="4540" started-at="2015-02-06T17:40:25Z" finished-at="2015-02-06T17:40:29Z">
+        </test-method>
+        <test-method status="PASS" signature="totalTestcase()" name="totalTestcase" is-config="true" duration-ms="0" started-at="2015-02-06T17:40:29Z" finished-at="2015-02-06T17:40:29Z">
+        </test-method>
+        <test-method status="PASS" signature="opportunitySelection()" name="opportunitySelection" duration-ms="35548" started-at="2015-02-06T17:40:29Z" depends-on-methods="com.fpx.test.QuoteGeneration.loginTOApplication" finished-at="2015-02-06T17:41:05Z">
+        </test-method>
+        <test-method status="PASS" signature="totalTestcase()" name="totalTestcase" is-config="true" duration-ms="0" started-at="2015-02-06T17:41:05Z" finished-at="2015-02-06T17:41:05Z">
+        </test-method>
+        <test-method status="PASS" signature="newQuoteCreation()" name="newQuoteCreation" duration-ms="15902" started-at="2015-02-06T17:41:05Z" depends-on-methods="com.fpx.test.QuoteGeneration.opportunitySelection" finished-at="2015-02-06T17:41:21Z">
+        </test-method>
+        <test-method status="PASS" signature="productSelection()" name="productSelection" duration-ms="44993" started-at="2015-02-06T17:41:21Z" depends-on-methods="com.fpx.test.QuoteGeneration.newQuoteCreation" finished-at="2015-02-06T17:42:06Z">
+        </test-method>
+        <test-method status="PASS" signature="totalTestcase()" name="totalTestcase" is-config="true" duration-ms="0" started-at="2015-02-06T17:41:21Z" finished-at="2015-02-06T17:41:21Z">
+        </test-method>
+        <test-method status="PASS" signature="totalTestcase()" name="totalTestcase" is-config="true" duration-ms="0" started-at="2015-02-06T17:42:06Z" finished-at="2015-02-06T17:42:06Z">
+        </test-method>
+        <test-method status="PASS" signature="documentGeneration()" name="documentGeneration" duration-ms="24908" started-at="2015-02-06T17:42:06Z" depends-on-methods="com.fpx.test.QuoteGeneration.productSelection" finished-at="2015-02-06T17:42:31Z">
+        </test-method>
+        <test-method status="PASS" signature="afterExecution()" name="afterExecution" is-config="true" duration-ms="1" started-at="2015-02-06T17:42:31Z" finished-at="2015-02-06T17:42:31Z">
+        </test-method>
+        <test-method status="PASS" signature="totalTestcase()" name="totalTestcase" is-config="true" duration-ms="0" started-at="2015-02-06T17:42:31Z" finished-at="2015-02-06T17:42:31Z">
+        </test-method>
+        <test-method status="PASS" signature="browserClose()" name="browserClose" is-config="true" duration-ms="0" started-at="2015-02-06T17:42:31Z" finished-at="2015-02-06T17:42:31Z">
+        </test-method>
+      </class>
+      <class name="com.fpx.test.jsoncreator">
+        <test-method status="PASS" signature="jsoncreate()" name="jsoncreate" is-config="true" duration-ms="243" started-at="2015-02-06T17:42:31Z" finished-at="2015-02-06T17:42:31Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

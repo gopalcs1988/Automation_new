@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)" preserve-order="true">
+    <classes>
+      <class name="com.fpx.test.QuoteGeneration">
+        <methods>
+          <include name="newQuoteCreation"/>
+          <include name="loginTOApplication"/>
+          <include name="browserAccess1"/>
+          <include name="productSelection"/>
+          <include name="beforesetup"/>
+          <include name="totalTestcase"/>
+          <include name="opportunitySelection"/>
+          <include name="documentGeneration"/>
+          <include name="afterExecution"/>
+          <include name="browserClose"/>
+        </methods>
+      </class> <!-- com.fpx.test.QuoteGeneration -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
