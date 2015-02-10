@@ -127,7 +127,7 @@ public class QuoteGeneration extends Base{
 		System.out.println("Total Testcases "+MasterReport.Totaltestcase);
 		System.out.println("Pass Cases "+MasterReport.totalpass);
 		System.out.println("Fail Cases "+MasterReport.totalfail);
-		driver.quit();
+		driver.close();
 	}
 	
 	
