@@ -109,6 +109,12 @@ public class QuoteGeneration extends Base{
 	
 	}
 	
+	@AfterClass
+	public void browserClose()
+	{
+		testcaseReport.addIndex();		
+	}
+	
 	@AfterTest
 	public void afterExecution()
 	{		
@@ -121,13 +127,10 @@ public class QuoteGeneration extends Base{
 		System.out.println("Total Testcases "+MasterReport.Totaltestcase);
 		System.out.println("Pass Cases "+MasterReport.totalpass);
 		System.out.println("Fail Cases "+MasterReport.totalfail);
+		driver.quit();
 	}
 	
-	@AfterClass
-	public void browserClose()
-	{
-		testcaseReport.addIndex();		
-	}
+	
 	
 	public void reporting(String name, String description, String status, String starttime, String endtime, String snapshot) throws Exception
 	{
