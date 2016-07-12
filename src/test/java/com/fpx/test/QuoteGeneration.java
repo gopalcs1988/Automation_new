@@ -1,6 +1,8 @@
 package com.fpx.test;
 
 import java.io.IOException;
+import java.io.Exception;
+
 
 import com.fpx.report.BasicTestReportElement;
 
